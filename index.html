@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fortify - The Future of Fragrance</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="media/seo/tab.png">
+    <link rel="apple-touch-icon" href="media/seo/tab.png">
+    
+    <!-- Open Graph / Facebook / iMessage -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Fortify - The Future of Fragrance">
+    <meta property="og:description" content="Modern fragrance for the modern man. Discover premium scents, exclusive drops, and vending locations.">
+    <meta property="og:image" content="media/seo/seo-logo.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="">
+    <meta name="twitter:title" content="Fortify - The Future of Fragrance">
+    <meta name="twitter:description" content="Modern fragrance for the modern man. Discover premium scents, exclusive drops, and vending locations.">
+    <meta name="twitter:image" content="media/seo/seo-logo.png">
+    
+    <!-- Additional Meta Tags -->
+    <meta name="description" content="Modern fragrance for the modern man. Discover premium scents, exclusive drops, and vending locations.">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,23 +37,47 @@
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Fortify</div>
-            <ul class="nav-links">
-                <li><a href="#fragrances">Fragrances</a></li>
-                <li><a href="#haircare">Haircare</a></li>
-                <li><a href="#skincare">Skincare</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#locations">Vending Locations</a></li>
+            <a href="index.html" class="logo-link">
+                <div class="logo">F O R T I F Y</div>
+            </a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="comingsoon/index.html">Fragrances</a></li>
+                <li><a href="comingsoon/index.html">Haircare</a></li>
+                <li><a href="comingsoon/index.html">Skincare</a></li>
+                <li><a href="comingsoon/index.html">About</a></li>
+                <li><a href="comingsoon/index.html">Vending Locations</a></li>
+                <li class="mobile-redeem-item">
+                    <a href="comingsoon/index.html" class="mobile-redeem-link">
+                        <button class="mobile-redeem-btn">Redeem Credit</button>
+                    </a>
+                </li>
             </ul>
-            <button class="redeem-btn">Redeem Credit</button>
+            <a href="comingsoon/index.html" class="redeem-btn-link desktop-redeem">
+                <button class="redeem-btn">Redeem Credit</button>
+            </a>
         </div>
     </nav>
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">The Future of Fragrance</h1>
-                <p class="hero-subtitle">Experience Fortify through our innovative vending network, then bring it home</p>
+            <div class="hero-inner">
+                <div class="hero-image-container">
+                    <img src="media/cover/frag1.png" alt="Fortify Fragrance" class="hero-image active">
+                    <img src="media/cover/frag2.png" alt="Fortify Fragrance" class="hero-image">
+                    <img src="media/cover/frag3.png" alt="Fortify Fragrance" class="hero-image">
+                </div>
+                <div class="hero-content">
+                    <h1 class="hero-title">F O R T I F Y</h1>
+                    <p class="hero-subtitle">The Future of Fragrance</p>
+                    <a href="comingsoon/index.html" class="shop-now-btn-link">
+                        <button class="shop-now-btn">SHOP NOW</button>
+                    </a>
+                </div>
             </div>
             <div class="gradient-orb orb-1"></div>
             <div class="gradient-orb orb-2"></div>
@@ -69,6 +118,71 @@
                 </div>
             </div>
         </section>
+
+        <section class="email-signup">
+            <div class="email-signup-container">
+                <h2 class="email-signup-title">Join the Movement</h2>
+                <p class="email-signup-description">Be the first to know about new scents, exclusive drops, and vending locations. Built for men who demand more.</p>
+                <form class="email-form" id="emailForm">
+                    <div class="email-input-wrapper">
+                        <input 
+                            type="email" 
+                            class="email-input" 
+                            id="emailInput"
+                            placeholder="Enter your email" 
+                            required
+                        />
+                        <button type="submit" class="join-now-btn">Join Now</button>
+                    </div>
+                    <p class="email-message" id="emailMessage"></p>
+                </form>
+                <p class="email-disclaimer">No spam. Just premium content for the discerning gentleman.</p>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">Fortify</h3>
+                    <p class="footer-tagline">Modern fragrance for the modern man.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Product</h4>
+                        <ul class="footer-link-list">
+                            <li><a href="comingsoon/index.html">Signature Scents</a></li>
+                            <li><a href="comingsoon/index.html">Vending Locations</a></li>
+                            <li><a href="comingsoon/index.html">Redeem Credit</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Company</h4>
+                        <ul class="footer-link-list">
+                            <li><a href="comingsoon/index.html">About</a></li>
+                            <li><a href="comingsoon/index.html">Our Story</a></li>
+                            <li><a href="comingsoon/index.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Legal</h4>
+                        <ul class="footer-link-list">
+                            <li><a href="comingsoon/index.html">Privacy</a></li>
+                            <li><a href="comingsoon/index.html">Terms</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">© <span id="currentYear">2024</span> Fortify. All rights reserved.</p>
+                <p class="footer-designer">
+                    <a href="https://charlierusso.dev/" target="_blank" rel="noopener noreferrer">Designed by Charles Russo</a>
+                </p>
+            </div>
+        </footer>
     </main>
 
     <script src="script.js"></script>
