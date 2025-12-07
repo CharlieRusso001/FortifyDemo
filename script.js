@@ -109,18 +109,19 @@ document.querySelectorAll('.feature-card').forEach(card => {
 
 // Image carousel with smooth fade in/out effect
 const heroImages = document.querySelectorAll('.hero-image');
-let currentImageIndex = 0;
+// Pick a random starting image index
+let currentImageIndex = Math.floor(Math.random() * heroImages.length);
 let carouselInterval = null;
 const fadeDuration = 2500; // 2.5 seconds for smooth fade transition
 const displayDuration = 4500; // 4.5 seconds fully visible
 const firstImageDisplayDuration = 500; // 0.5 seconds for first image (much shorter)
 const firstImageDelay = 800; // 0.8 seconds delay before first image appears (faster)
 
-// Initialize images
+// Initialize images - start with random image
 heroImages.forEach((img, index) => {
     img.classList.remove('active', 'fade-out');
-    if (index === 0) {
-        // First image starts visible faster
+    if (index === currentImageIndex) {
+        // Random starting image starts visible faster
         setTimeout(() => {
             img.classList.add('active');
             
