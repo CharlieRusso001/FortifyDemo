@@ -234,3 +234,90 @@ if (heroImages.length > 0) {
     });
 }
 
+// QR Code Modal functionality
+const qrButton = document.getElementById('qrButton');
+const qrModal = document.getElementById('qrModal');
+const qrModalOverlay = document.getElementById('qrModalOverlay');
+const qrModalClose = document.getElementById('qrModalClose');
+const qrCodeContainer = document.getElementById('qrCodeContainer');
+
+let qrCode = null;
+
+// Initialize QR code
+function initQRCode() {
+    if (typeof QRCodeStyling === 'undefined') {
+        console.error('QR Code Styling library not loaded');
+        return;
+    }
+
+    // Get current website URL
+    const websiteUrl = window.location.href;
+
+    // Create QR code with Fortify styling
+    qrCode = new QRCodeStyling({
+        width: 300,
+        height: 300,
+        data: websiteUrl,
+        margin: 20,
+        type: 'svg',
+        backgroundOptions: {
+            color: 'transparent'
+        },
+        dotsOptions: {
+            type: 'rounded',
+            color: '#d4a574' // Fortify beige accent
+        },
+        cornersSquareOptions: {
+            type: 'extra-rounded',
+            color: '#d4a574' // Fortify beige accent
+        },
+        cornersDotOptions: {
+            type: 'dot',
+            color: '#d4a574' // Fortify beige accent
+        }
+    });
+
+    // Append QR code to container
+    qrCode.append(qrCodeContainer);
+}
+
+// Open QR modal
+function openQRModal() {
+    if (!qrCode) {
+        initQRCode();
+    }
+    qrModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close QR modal
+function closeQRModal() {
+    qrModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Event listeners
+if (qrButton) {
+    qrButton.addEventListener('click', openQRModal);
+}
+
+if (qrModalClose) {
+    qrModalClose.addEventListener('click', closeQRModal);
+}
+
+if (qrModalOverlay) {
+    qrModalOverlay.addEventListener('click', closeQRModal);
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && qrModal.classList.contains('active')) {
+        closeQRModal();
+    }
+});
+
+// Initialize QR code when page loads
+window.addEventListener('load', () => {
+    // QR code will be initialized when modal is first opened
+});
+

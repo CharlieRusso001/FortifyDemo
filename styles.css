@@ -175,6 +175,44 @@ main {
     display: inline-block;
 }
 
+/* Fixed QR Code Floating Action Button */
+.qr-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #d4a574 0%, #c8966a 100%);
+    border: none;
+    border-radius: 50%;
+    color: var(--text-white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(212, 165, 116, 0.4);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    padding: 0;
+}
+
+.qr-fab:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(212, 165, 116, 0.6);
+    background: linear-gradient(135deg, #e0b080 0%, #d4a574 100%);
+}
+
+.qr-fab:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.qr-fab svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+}
+
+
 .mobile-redeem-item {
     display: none;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -1183,6 +1221,10 @@ main {
         display: none;
     }
 
+    .mobile-qr-item {
+        display: block;
+    }
+
     .mobile-redeem-item {
         display: block;
     }
@@ -1604,6 +1646,154 @@ main {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* QR Code Modal */
+.qr-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.qr-modal.active {
+    display: flex;
+}
+
+.qr-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 40, 24, 0.95);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.3s ease;
+}
+
+.qr-modal-content {
+    position: relative;
+    background: linear-gradient(135deg, rgba(26, 77, 46, 0.95) 0%, rgba(13, 40, 24, 0.98) 100%);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    border-radius: 20px;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: modalSlideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 10001;
+}
+
+.qr-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(212, 165, 116, 0.1);
+    border: 1px solid rgba(212, 165, 116, 0.3);
+    color: var(--accent-beige);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.qr-modal-close:hover {
+    background: rgba(212, 165, 116, 0.2);
+    border-color: var(--accent-beige);
+    transform: rotate(90deg);
+}
+
+.qr-modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #ffffff 0%, #d4a574 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.qr-code-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    margin: 1.5rem 0;
+    min-height: 300px;
+}
+
+.qr-code-container svg {
+    max-width: 100%;
+    height: auto;
+}
+
+.qr-modal-description {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .qr-modal-content {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+
+    .qr-code-container {
+        min-height: 250px;
+        padding: 1rem;
+    }
+
+    .qr-fab {
+        width: 52px;
+        height: 52px;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .qr-fab svg {
+        width: 22px;
+        height: 22px;
     }
 }
 
